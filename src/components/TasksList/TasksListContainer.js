@@ -1,15 +1,11 @@
-import {toggleTask} from "../../redux/tasks-reducer";
+import {toggleImportant, toggleTask} from "../../redux/tasks-reducer";
 import {connect} from "react-redux";
 import TasksList from "./TasksList";
 import React from "react";
 
-const TasksListContainer = ({tasks, toggleTask}) => {
-    const onCompletedChange = (id) => {
-        toggleTask(id)
-    };
-
+const TasksListContainer = (props) => {
     return (
-        <TasksList tasks={tasks} onCompletedChange={onCompletedChange}/>
+        <TasksList {...props}/>
     )
 };
 
@@ -19,6 +15,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const dispatches = {toggleTask};
+const dispatches = {toggleTask, toggleImportant};
 
 export default connect(mapStateToProps, dispatches)(TasksListContainer);

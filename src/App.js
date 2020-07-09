@@ -1,12 +1,16 @@
 import React from 'react';
-import Header from "./components/Header/Header";
 import c from "./App.module.scss"
 import TasksListContainer from "./components/TasksList/TasksListContainer";
+import EditComponentContainer from "./components/EditComponent/EditComponentContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
-function App() {
+// убрать лишние контейнерные: HeaderContainer. Просто передать пропсы через App
+
+function App({editMode}) {
   return (
     <div>
-        <Header/>
+        {editMode && <EditComponentContainer/>}
+        <HeaderContainer/>
         <div className={c.content}>
             <div className={c.list}>
                 <TasksListContainer/>
@@ -16,7 +20,6 @@ function App() {
   );
 }
 
-
-export default App;
+export default App
 
 

@@ -2,7 +2,7 @@ import React from "react";
 import Task from "./Task/Task";
 import c from "./TasksList.module.scss"
 
-const TasksList = ({tasks, onCompletedChange}) => {
+const TasksList = ({tasks, toggleTask, toggleImportant}) => {
     return (
         <div className={c.container}>
             {tasks.map(t => <Task key={t.id}
@@ -11,7 +11,9 @@ const TasksList = ({tasks, onCompletedChange}) => {
                                   description={t.description}
                                   date={t.date}
                                   completed={t.completed}
-                                  onCompletedChange={onCompletedChange}
+                                  important={t.important}
+                                  onCompletedChange={() => toggleTask(t.id)}
+                                  onImportantChange={() => toggleImportant(t.id)}
             />)}
         </div>
     );
