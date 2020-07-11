@@ -40,6 +40,9 @@
   display: flex;
   justify-content: space-between;
 }
+.title, .description{
+  word-break: break-all;
+}
 
 .title{
   font-size: 25px;
@@ -48,4 +51,9 @@
 
 .description{
   padding: 5px 20px;
+  max-width: 100%;
+}
+
+.options{
+  padding: 3px;
 }

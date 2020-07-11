@@ -1,0 +1,12 @@
+.btn{
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: transform 0.2s;
+
+  &:hover{
+    transform: scale(0.95);
+  }
+}

@@ -6,11 +6,11 @@ import {setEditMode} from "../../redux/app-reducer";
 
 const EditComponentContainer = ({createTask, setEditMode}) => {
 
-    const closeWindow = () => {
+    const onCancel = () => {
         setEditMode(false);
     };
 
-    return <EditComponent createTask={createTask} closeWindow={closeWindow}/>
+    return <EditComponent createTask={createTask} onCancel={onCancel}/>
 };
 
 const dispatches = {createTask, setEditMode};

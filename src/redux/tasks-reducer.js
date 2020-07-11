@@ -32,6 +32,14 @@ const initialState = {
             completed: false,
             important: false
         },
+        {
+            id: 4,
+            date: '06.07.2020',
+            title: "Choose design ui library",
+            description: "Ant Design vs Material UI vs ... millions of these. Ant Design vs Material UI vs ... millions of these. Ant Design vs Material UI vs ... millions of these. Ant Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of these",
+            completed: true,
+            important: false
+        },
     ]
 };
 

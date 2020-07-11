@@ -2,7 +2,11 @@ import React from "react";
 import c from "./Task.module.scss";
 import cn from "classnames"
 import {ReactComponent as Star} from "../../../assets/icons/star.svg";
+import Checkbox from "../../../common/Checkbox/Checkbox";
+import EditButton from "../../../common/EditButton/EditButton";
+import RemoveButton from "../../../common/RemoveButton/RemoveButton";
 
+// снизить размеры до 35x у кнопок
 
 const Task = ({title, description, date, completed, important, onCompletedChange, onImportantChange}) => {
     return (
@@ -16,11 +20,12 @@ const Task = ({title, description, date, completed, important, onCompletedChange
                 <div className={c.description}>{description}</div>
             </div>
             <div className={c.options}>
-                <input type="checkbox" onChange={onCompletedChange} checked={completed}/>
+                <Checkbox onChange={onCompletedChange} checked={completed}/>
+                <EditButton/>
+                <RemoveButton/>
             </div>
         </div>
     );
 };
-
 
 export default Task;
