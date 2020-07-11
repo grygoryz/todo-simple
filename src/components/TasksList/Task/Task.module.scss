@@ -5,6 +5,12 @@
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
   display: flex;
+
+  &_grayscaled{
+    background-color: #ededed;
+    color: gray;
+
+  }
 }
 
 .options{
@@ -56,4 +62,17 @@
 
 .options{
   padding: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.editBtn{
+  flex: 1 1 auto;
+  margin-top: 5px;
+}
+
+
+
+
+
