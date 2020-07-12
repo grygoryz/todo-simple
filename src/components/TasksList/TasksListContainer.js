@@ -3,8 +3,7 @@ import {connect} from "react-redux";
 import TasksList from "./TasksList";
 import React from "react";
 import {setEditMode} from "../../redux/app-reducer";
-import {getFilteredTasks, getSortedTasks, getSuitableTasks} from "../../selectors/tasksSelectors";
-import {compose} from "redux";
+import {getSuitableTasks} from "../../selectors/tasksSelectors";
 
 const TasksListContainer = ({tasks, toggleCompleted, toggleImportant, removeTask, setEditMode, setEditingTask}) => {
 
