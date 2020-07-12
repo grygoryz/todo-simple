@@ -3,13 +3,12 @@
   position: relative;
   border: 3px solid #dadada;
   border-radius: 10px;
-  font-family: 'Poppins', sans-serif;
   display: flex;
+  transition: background-color, color .2s;
 
   &_grayscaled{
     background-color: #ededed;
     color: gray;
-
   }
 }
 
@@ -38,6 +37,7 @@
 
 .content{
   flex: 1 1 auto;
+
 }
 
 .header{
@@ -58,6 +58,9 @@
 .description{
   padding: 5px 20px;
   max-width: 100%;
+  font-size: 18px;
+  line-height: 1.5;
+
 }
 
 .options{

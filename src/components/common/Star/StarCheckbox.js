@@ -1,6 +1,6 @@
 import React from "react";
 import c from "./StarCheckbox.module.scss";
-import {ReactComponent as Star} from "../../assets/icons/star.svg";
+import {ReactComponent as Star} from "../../../assets/icons/star.svg";
 
 const StarCheckbox = ({checked, onChange}) => {
     return (

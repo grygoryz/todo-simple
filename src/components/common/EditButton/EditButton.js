@@ -1,6 +1,6 @@
 import React from "react";
 import c from "./EditButton.module.scss";
-import {ReactComponent as EditBtnIcon} from "../../assets/icons/edit.svg"
+import {ReactComponent as EditBtnIcon} from "../../../assets/icons/edit.svg"
 
 const EditButton = ({onClick}) => {
     return (

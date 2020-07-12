@@ -2,12 +2,10 @@ import React from "react";
 import c from "./EditComponent.module.scss"
 import EditForm from "./EditForm/EditForm";
 
-// можно вытащить кнопку отмены из формы сюда
 
 const EditComponent = ({createTask, onCancel}) => {
 
     const onSubmit = (formData) => {
-        console.log(formData)
         createTask(formData)
     };
 

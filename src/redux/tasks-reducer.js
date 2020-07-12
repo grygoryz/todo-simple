@@ -3,7 +3,7 @@ import {setEditMode} from "./app-reducer";
 
 const ADD_TASK = "tasks-reducer/ADD_TASK";
 const REMOVE_TASK = "task-reducer/REMOVE_TASK";
-const TOGGLE_TASK = "task-reducer/TOGGLE_TASK";
+const TOGGLE_COMPLETED = "task-reducer/TOGGLE_COMPLETED";
 const TOGGLE_IMPORTANT = "task-reducer/TOGGLE_IMPORTANT";
 
 const initialState = {
@@ -36,7 +36,7 @@ const initialState = {
             id: 4,
             date: '06.07.2020',
             title: "Choose design ui library",
-            description: "Ant Design vs Material UI vs ... millions of these. Ant Design vs Material UI vs ... millions of these. Ant Design vs Material UI vs ... millions of these. Ant Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of theseAnt Design vs Material UI vs ... millions of these",
+            description: "The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time.",
             completed: true,
             important: false
         },
@@ -51,7 +51,7 @@ const tasksReducer = (state = initialState, action) => {
         case REMOVE_TASK: {
             return {...state, tasksList: state.tasksList.filter(t => t.id !== action.id)};
         }
-        case TOGGLE_TASK: {
+        case TOGGLE_COMPLETED: {
             return {...state, tasksList: state.tasksList.map(t => t.id === action.id ? {...t, completed: !t.completed} : t)};
         }
         case TOGGLE_IMPORTANT: {
@@ -64,7 +64,7 @@ const tasksReducer = (state = initialState, action) => {
 
 export const addTask = (task) => ({type: ADD_TASK, task});
 export const removeTask = (id) => ({type: REMOVE_TASK, id});
-export const toggleTask = (id) => ({type: TOGGLE_TASK, id});
+export const toggleCompleted = (id) => ({type: TOGGLE_COMPLETED, id});
 export const toggleImportant = (id) => ({type: TOGGLE_IMPORTANT, id});
 
 export const createTask = (formData) => (dispatch) => {

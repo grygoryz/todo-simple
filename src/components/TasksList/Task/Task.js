@@ -1,10 +1,10 @@
 import React from "react";
 import c from "./Task.module.scss";
 import cn from "classnames"
-import Checkbox from "../../../common/Checkbox/Checkbox";
-import EditButton from "../../../common/EditButton/EditButton";
-import RemoveButton from "../../../common/RemoveButton/RemoveButton";
-import StarCheckbox from "../../../common/Star/StarCheckbox";
+import Checkbox from "../../common/Checkbox/Checkbox";
+import EditButton from "../../common/EditButton/EditButton";
+import RemoveButton from "../../common/RemoveButton/RemoveButton";
+import StarCheckbox from "../../common/Star/StarCheckbox";
 
 // подумать над обертками div. можно ли как-то без них?
 // взять другой шрифт, у которого есть кириллица
