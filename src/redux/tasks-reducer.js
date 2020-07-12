@@ -16,7 +16,8 @@ const initialState = {
             title: "Some title",
             description: "This is the first testing todo. Some text, some text, some text....",
             completed: true,
-            important: false
+            important: false,
+            timestamp: 10
         },
         {
             id: 2,
@@ -24,7 +25,8 @@ const initialState = {
             title: "Local Storage",
             description: "Need to learn Local Storage. Because i need this API for this project",
             completed: false,
-            important: true
+            important: true,
+            timestamp: 20
         },
         {
             id: 3,
@@ -32,7 +34,8 @@ const initialState = {
             title: "Choose design ui library",
             description: "Ant Design vs Material UI vs ... millions of these",
             completed: false,
-            important: false
+            important: false,
+            timestamp: 30
         },
         {
             id: 4,
@@ -40,7 +43,8 @@ const initialState = {
             title: "Choose design ui library",
             description: "The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time.",
             completed: true,
-            important: false
+            important: false,
+            timestamp: 40
         },
     ],
     editingTask: null
@@ -78,11 +82,16 @@ export const toggleCompleted = (id) => ({type: TOGGLE_COMPLETED, id});
 export const toggleImportant = (id) => ({type: TOGGLE_IMPORTANT, id});
 export const setEditingTask = (payload) => ({type: SET_EDITING_TASK, payload});
 
-export const createTask = (formData) => (dispatch) => {
+const getNextId = (tasksList) =>  tasksList.length ? tasksList[tasksList.length - 1].id + 1 : 1;
+
+export const createTask = (formData) => (dispatch, getState) => {
+    const date = new Date();
+
     const newTask = {
         ...formData,
-        date: formatDate(new Date()),
-        id: Date.now(),
+        date: formatDate(date),
+        timestamp: date.getTime(),
+        id: getNextId(getState().tasks.tasksList),
         completed: false
     };
 
