@@ -3,9 +3,10 @@ import c from "./App.module.scss"
 import TasksListContainer from "./components/TasksList/TasksListContainer";
 import EditComponentContainer from "./components/EditComponent/EditComponentContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Panel from "./components/Panel/Panel";
+import PanelContainer from "./components/Panel/PanelContainer";
 
-// мб сделать так, чтобы editComponentContainer сам брал editingTask из стейта. лишнее прокидывание
+// rename dispatches everywhere
+// try to remove div c.list. insert styles inside TasksList (maybe it's will be better)
 
 function App({editMode}) {
   return (
@@ -13,7 +14,7 @@ function App({editMode}) {
         {editMode && <EditComponentContainer/>}
         <HeaderContainer/>
         <div className={c.content}>
-            <Panel/>
+            <PanelContainer/>
             <div className={c.list}>
                 <TasksListContainer/>
             </div>

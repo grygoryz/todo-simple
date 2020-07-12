@@ -4,11 +4,11 @@ import FilterSelect from "./FilterSelect/FilterSelect";
 import SortingSelect from "./SortingSelect/SortingSelect";
 
 
-const Panel = (props) => {
+const Panel = ({visibilityFilter, sortingMethod, setVisibilityFilter, setSortingMethod}) => {
     return (
         <div className={c.container}>
-            <FilterSelect/>
-            <SortingSelect/>
+            <FilterSelect value={visibilityFilter} onChange={(e) => setVisibilityFilter(e.target.value)}/>
+            <SortingSelect value={sortingMethod} onChange={(e) => setSortingMethod(e.target.value)}/>
         </div>
     )
 };

@@ -3,10 +3,12 @@ import tasksReducer from "./tasks-reducer";
 import {reducer as formReducer} from "redux-form";
 import thunkMiddleware from "redux-thunk";
 import appReducer from "./app-reducer";
+import showingReducer from "./showing-reducer";
 
 const reducers = combineReducers({
     tasks: tasksReducer,
     app: appReducer,
+    showing: showingReducer,
     form: formReducer
 });
 
