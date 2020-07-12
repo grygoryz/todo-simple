@@ -1,3 +1,5 @@
+import {LOAD_PERSISTED_STATE} from "./common-actions";
+
 const SET_VISIBILITY_FILTER = "showing-reducer/SET_VISIBILITY_FILTER";
 const SET_SORTING_METHOD = "showing-reducer/SET_SORTING_METHOD";
 
@@ -25,6 +27,9 @@ const showingReducer = (state = initialState, action) => {
         }
         case SET_SORTING_METHOD: {
             return {...state, sortingMethod: action.method};
+        }
+        case LOAD_PERSISTED_STATE: {
+            return {...state, ...action.payload.showing}
         }
         default:
             return state;
