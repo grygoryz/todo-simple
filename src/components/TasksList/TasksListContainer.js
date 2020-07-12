@@ -1,11 +1,23 @@
-import {removeTask, toggleCompleted, toggleImportant} from "../../redux/tasks-reducer";
+import {editTask, removeTask, setEditingTask, toggleCompleted, toggleImportant} from "../../redux/tasks-reducer";
 import {connect} from "react-redux";
 import TasksList from "./TasksList";
 import React from "react";
+import {setEditMode} from "../../redux/app-reducer";
 
-const TasksListContainer = (props) => {
+const TasksListContainer = ({tasks, toggleCompleted, removeTask, setEditMode, setEditingTask}) => {
+
+    const openEditWindow = (task) => {
+        setEditingTask(task);
+        setEditMode(true);
+    };
+
     return (
-        <TasksList {...props}/>
+        <TasksList tasks={tasks}
+                   toggleCompleted={toggleCompleted}
+                   toggleImportant={toggleImportant}
+                   removeTask={removeTask}
+                   openEditWindow={openEditWindow}
+        />
     )
 };
 
@@ -15,6 +27,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const dispatches = {toggleCompleted, toggleImportant, removeTask};
+const dispatches = {toggleCompleted, toggleImportant, removeTask, editTask, setEditMode, setEditingTask};
 
 export default connect(mapStateToProps, dispatches)(TasksListContainer);

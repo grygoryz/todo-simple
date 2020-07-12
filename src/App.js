@@ -6,10 +6,10 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 
 // убрать лишние контейнерные: HeaderContainer. Просто передать пропсы через App
 
-function App({editMode}) {
+function App({editMode, editingTask}) {
   return (
     <div>
-        {editMode && <EditComponentContainer/>}
+        {editMode && <EditComponentContainer editingTask={editingTask}/>}
         <HeaderContainer/>
         <div className={c.content}>
             <div className={c.list}>

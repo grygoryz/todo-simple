@@ -9,7 +9,7 @@ import StarCheckbox from "../../common/Star/StarCheckbox";
 // подумать над обертками div. можно ли как-то без них?
 // взять другой шрифт, у которого есть кириллица
 
-const Task = ({title, description, date, completed, important, onCompletedChange, onImportantChange, removeTask}) => {
+const Task = ({title, description, date, completed, important, onCompletedChange, onImportantChange, removeTask, openEditWindow}) => {
     return (
         <div  className={cn(c.container, {[c.container_grayscaled]: completed})}>
             <div className={c.star}><StarCheckbox checked={important} onChange={onImportantChange}/></div>
@@ -22,7 +22,7 @@ const Task = ({title, description, date, completed, important, onCompletedChange
             </div>
             <div className={c.options}>
                 <div><Checkbox onChange={onCompletedChange} checked={completed}/></div>
-                <div className={c.editBtn}><EditButton/></div>
+                <div className={c.editBtn}><EditButton onClick={openEditWindow}/></div>
                 <div><RemoveButton onClick={removeTask}/></div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Task from "./Task/Task";
 import c from "./TasksList.module.scss"
 
-const TasksList = ({tasks, toggleCompleted, toggleImportant, removeTask}) => {
+const TasksList = ({tasks, toggleCompleted, toggleImportant, removeTask, openEditWindow}) => {
     return (
         <div className={c.container}>
             {tasks.map(t => <Task key={t.id}
@@ -15,6 +15,7 @@ const TasksList = ({tasks, toggleCompleted, toggleImportant, removeTask}) => {
                                   onCompletedChange={() => toggleCompleted(t.id)}
                                   onImportantChange={() => toggleImportant(t.id)}
                                   removeTask={() => removeTask(t.id)}
+                                  openEditWindow={() => openEditWindow(t)}
             />)}
         </div>
     );

@@ -5,6 +5,8 @@ const ADD_TASK = "tasks-reducer/ADD_TASK";
 const REMOVE_TASK = "task-reducer/REMOVE_TASK";
 const TOGGLE_COMPLETED = "task-reducer/TOGGLE_COMPLETED";
 const TOGGLE_IMPORTANT = "task-reducer/TOGGLE_IMPORTANT";
+const EDIT_TASK = "task-reducer/EDIT_TASK";
+const SET_EDITING_TASK = "task-reducer/SET_EDITING_TASK";
 
 const initialState = {
     tasksList: [
@@ -40,7 +42,8 @@ const initialState = {
             completed: true,
             important: false
         },
-    ]
+    ],
+    editingTask: null
 };
 
 const tasksReducer = (state = initialState, action) => {
@@ -50,6 +53,12 @@ const tasksReducer = (state = initialState, action) => {
         }
         case REMOVE_TASK: {
             return {...state, tasksList: state.tasksList.filter(t => t.id !== action.id)};
+        }
+        case EDIT_TASK: {
+            return {...state, tasksList: state.tasksList.map(t => t.id === action.id ? {...t, ...action.payload} : t)};
+        }
+        case SET_EDITING_TASK: {
+            return {...state, editingTask: action.payload}
         }
         case TOGGLE_COMPLETED: {
             return {...state, tasksList: state.tasksList.map(t => t.id === action.id ? {...t, completed: !t.completed} : t)};
@@ -64,8 +73,10 @@ const tasksReducer = (state = initialState, action) => {
 
 export const addTask = (task) => ({type: ADD_TASK, task});
 export const removeTask = (id) => ({type: REMOVE_TASK, id});
+export const editTask = (id, payload) => ({type: EDIT_TASK, id, payload});
 export const toggleCompleted = (id) => ({type: TOGGLE_COMPLETED, id});
 export const toggleImportant = (id) => ({type: TOGGLE_IMPORTANT, id});
+export const setEditingTask = (payload) => ({type: SET_EDITING_TASK, payload});
 
 export const createTask = (formData) => (dispatch) => {
     const newTask = {
@@ -78,6 +89,8 @@ export const createTask = (formData) => (dispatch) => {
     dispatch(setEditMode(false));
     dispatch(addTask(newTask))
 };
+
+
 
 
 export default tasksReducer;
