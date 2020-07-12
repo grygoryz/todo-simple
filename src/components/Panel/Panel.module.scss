@@ -1,0 +1,8 @@
+.container{
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  & > div:first-child{
+    margin-right: 20px;
+  }
+}

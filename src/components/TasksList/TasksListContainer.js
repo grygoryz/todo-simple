@@ -6,6 +6,7 @@ import {setEditMode} from "../../redux/app-reducer";
 
 const TasksListContainer = ({tasks, toggleCompleted, toggleImportant, removeTask, setEditMode, setEditingTask}) => {
 
+    // это можно вынести в thunk
     const openEditWindow = (task) => {
         setEditingTask(task);
         setEditMode(true);
