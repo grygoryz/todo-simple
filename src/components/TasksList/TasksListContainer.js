@@ -4,7 +4,7 @@ import TasksList from "./TasksList";
 import React from "react";
 import {setEditMode} from "../../redux/app-reducer";
 
-const TasksListContainer = ({tasks, toggleCompleted, removeTask, setEditMode, setEditingTask}) => {
+const TasksListContainer = ({tasks, toggleCompleted, toggleImportant, removeTask, setEditMode, setEditingTask}) => {
 
     const openEditWindow = (task) => {
         setEditingTask(task);

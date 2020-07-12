@@ -4,12 +4,12 @@ import TasksListContainer from "./components/TasksList/TasksListContainer";
 import EditComponentContainer from "./components/EditComponent/EditComponentContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 
-// убрать лишние контейнерные: HeaderContainer. Просто передать пропсы через App
+// мб сделать так, чтобы editComponentContainer сам брал editingTask из стейта. лишнее прокидывание
 
-function App({editMode, editingTask}) {
+function App({editMode}) {
   return (
     <div>
-        {editMode && <EditComponentContainer editingTask={editingTask}/>}
+        {editMode && <EditComponentContainer/>}
         <HeaderContainer/>
         <div className={c.content}>
             <div className={c.list}>

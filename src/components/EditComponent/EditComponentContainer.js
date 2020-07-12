@@ -19,6 +19,12 @@ const EditComponentContainer = ({createTask, setEditMode, editingTask, editTask,
     return <EditComponent createTask={createTask} onCancel={onCancel} editingTask={editingTask} applyEdits={applyEdits}/>
 };
 
+const mapStateToProps = (state) => {
+    return {
+        editingTask: state.tasks.editingTask
+    }
+};
+
 const dispatches = {createTask, editTask, setEditMode, setEditingTask};
 
-export default connect(null, dispatches)(EditComponentContainer)
+export default connect(mapStateToProps, dispatches)(EditComponentContainer)
