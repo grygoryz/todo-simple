@@ -42,25 +42,51 @@
 
 .header{
   border-bottom: 3px solid #dadada;
-  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
 }
+
+.header, .description{
+  padding: 5px 20px;
+
+  @media (max-width: 450px) {
+    padding: 5px 10px;
+  }
+}
+
 .title, .description{
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .title{
   font-size: 25px;
   font-weight: bold;
+  margin-right: 10px;
+
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+}
+
+.date{
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 }
 
 .description{
-  padding: 5px 20px;
   max-width: 100%;
   font-size: 18px;
   line-height: 1.5;
-
 }
 
 .options{

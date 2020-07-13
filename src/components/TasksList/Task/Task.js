@@ -7,16 +7,16 @@ import RemoveButton from "../../common/RemoveButton/RemoveButton";
 import StarCheckbox from "../../common/Star/StarCheckbox";
 
 // подумать над обертками div. можно ли как-то без них?
-// взять другой шрифт, у которого есть кириллица
 
-const Task = ({title, description, date, completed, important, onCompletedChange, onImportantChange, removeTask, openEditWindow}) => {
+const Task = ({title, description, date, completed, important,
+                  onCompletedChange, onImportantChange, removeTask, openEditWindow}) => {
     return (
         <div  className={cn(c.container, {[c.container_grayscaled]: completed})}>
             <div className={c.star}><StarCheckbox checked={important} onChange={onImportantChange}/></div>
             <div className={c.content}>
                 <div className={c.header}>
                     <div className={c.title}>{title}</div>
-                    <div>{date}</div>
+                    <div className={c.date}>{date}</div>
                 </div>
                 <div className={c.description}>{description}</div>
             </div>

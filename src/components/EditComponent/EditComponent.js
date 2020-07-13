@@ -2,8 +2,7 @@ import React from "react";
 import c from "./EditComponent.module.scss"
 import EditForm from "./EditForm/EditForm";
 
-
-const EditComponent = ({createTask, applyEdits, onCancel, editingTask}) => {
+const EditComponent = ({createTask, applyEdits, closeWindow, editingTask}) => {
 
     const onSubmit = (formData) => {
         if (!editingTask){
@@ -13,11 +12,15 @@ const EditComponent = ({createTask, applyEdits, onCancel, editingTask}) => {
         }
     };
 
+    const onClick = (e) => {
+        if (e.target.className === c.container) closeWindow();
+    };
+
     return (
-        <div className={c.container}>
+        <div onClick={onClick} className={c.container}>
             <div className={c.window}>
                 <h2 className={c.title}>{editingTask? "Edit Task:" : "Add Task:"}</h2>
-                <EditForm initialValues={editingTask} onSubmit={onSubmit} onCancel={onCancel}/>
+                <EditForm initialValues={editingTask} onSubmit={onSubmit} onCancel={closeWindow}/>
             </div>
         </div>
     )

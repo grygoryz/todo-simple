@@ -103,4 +103,15 @@ export const createTask = (formData) => (dispatch, getState) => {
     dispatch(addTask(newTask))
 };
 
+export const openEditWindow = (task) => (dispatch) => {
+    dispatch(setEditingTask(task));
+    dispatch(setEditMode(true));
+};
+
+export const applyEdits = (id, payload) => (dispatch) => {
+    dispatch(setEditMode(false));
+    dispatch(setEditingTask(null));
+    dispatch(editTask(id, payload));
+};
+
 export default tasksReducer;

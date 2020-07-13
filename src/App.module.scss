@@ -1,7 +1,23 @@
-.content{
-  padding: 80px 300px 0;
+.container{
+  padding-top: 80px;
+
+  @media (max-width: 450px) {
+    padding-top: 65px;
+  }
 }
 
-.list{
- // border: 1px solid red;
+.content{
+  padding: 0 300px;
+
+  @media (max-width: 1200px) {
+    padding: 0 150px;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0 70px;
+  }
+
+  @media (max-width: 700px) {
+    padding: 0 55px 0 20px;
+  }
 }

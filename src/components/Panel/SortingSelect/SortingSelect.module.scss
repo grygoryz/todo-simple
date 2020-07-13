@@ -1,9 +1,16 @@
 .container{
   display: flex;
   align-items: center;
+  @media (max-width: 450px) {
+    flex-flow: column;
+  }
 }
 
 .title{
   margin-right: 10px;
   font-size: 19px;
+  @media (max-width: 450px) {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
 }

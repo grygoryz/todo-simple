@@ -1,22 +1,14 @@
 import {connect} from "react-redux";
 import EditComponent from "./EditComponent";
-import {createTask, editTask, setEditingTask} from "../../redux/tasks-reducer";
+import {applyEdits, createTask} from "../../redux/tasks-reducer";
 import React from "react";
 import {setEditMode} from "../../redux/app-reducer";
 
-const EditComponentContainer = ({createTask, setEditMode, editingTask, editTask, setEditingTask}) => {
-
-    const onCancel = () => {
-        setEditMode(false);
-    };
-
-    const applyEdits = (id, payload) => {
-        setEditMode(false);
-        setEditingTask(null);
-        editTask(id, payload)
-    };
-
-    return <EditComponent createTask={createTask} onCancel={onCancel} editingTask={editingTask} applyEdits={applyEdits}/>
+const EditComponentContainer = ({createTask, setEditMode, editingTask, applyEdits}) => {
+    return <EditComponent createTask={createTask}
+                          closeWindow={() => setEditMode(false)}
+                          editingTask={editingTask}
+                          applyEdits={applyEdits}/>
 };
 
 const mapStateToProps = (state) => {
@@ -25,6 +17,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const dispatches = {createTask, editTask, setEditMode, setEditingTask};
+const dispatches = {createTask, applyEdits, setEditMode};
 
 export default connect(mapStateToProps, dispatches)(EditComponentContainer)
