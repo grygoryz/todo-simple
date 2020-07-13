@@ -8,6 +8,6 @@ const HeaderContainer = ({setEditMode}) => {
     return <Header openEditWindow={() => setEditMode(true)}/>
 };
 
-const dispatches = {setEditMode};
+const dispatchProps = {setEditMode};
 
-export default connect(null, dispatches)(HeaderContainer);
+export default connect(null, dispatchProps)(HeaderContainer);

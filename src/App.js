@@ -7,9 +7,6 @@ import PanelContainer from "./components/Panel/PanelContainer";
 import {CSSTransitionGroup} from "react-transition-group";
 import fadeTransition from "./transitions/fade.module.scss";
 
-// rename dispatches everywhere
-// try to remove div c.list. insert styles inside TasksList (maybe it's will be better)
-
 function App({editMode}) {
   return (
     <div>

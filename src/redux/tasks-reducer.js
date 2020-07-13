@@ -11,42 +11,15 @@ const SET_EDITING_TASK = "task-reducer/SET_EDITING_TASK";
 
 const initialState = {
     tasksList: [
-        // {
-        //     id: 1,
-        //     date: '05.07.2020',
-        //     title: "Some title",
-        //     description: "This is the first testing todo. Some text, some text, some text....",
-        //     completed: true,
-        //     important: false,
-        //     timestamp: 10
-        // },
-        // {
-        //     id: 2,
-        //     date: '05.07.2020',
-        //     title: "Local Storage",
-        //     description: "Need to learn Local Storage. Because i need this API for this project",
-        //     completed: false,
-        //     important: true,
-        //     timestamp: 20
-        // },
-        // {
-        //     id: 3,
-        //     date: '06.07.2020',
-        //     title: "Choose design ui library",
-        //     description: "Ant Design vs Material UI vs ... millions of these",
-        //     completed: false,
-        //     important: false,
-        //     timestamp: 30
-        // },
-        // {
-        //     id: 4,
-        //     date: '06.07.2020',
-        //     title: "Choose design ui library",
-        //     description: "The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time.",
-        //     completed: true,
-        //     important: false,
-        //     timestamp: 40
-        // },
+        {
+            id: 0,
+            date: '05.07.2020',
+            title: "Some Title",
+            description: "This is the example task. Create your own!",
+            completed: false,
+            important: false,
+            timestamp: 99999999999
+        },
     ],
     editingTask: null
 };
@@ -108,9 +81,13 @@ export const openEditWindow = (task) => (dispatch) => {
     dispatch(setEditMode(true));
 };
 
-export const applyEdits = (id, payload) => (dispatch) => {
+export const closeEditWindow = () => (dispatch) => {
     dispatch(setEditMode(false));
     dispatch(setEditingTask(null));
+};
+
+export const applyEdits = (id, payload) => (dispatch) => {
+    dispatch(closeEditWindow());
     dispatch(editTask(id, payload));
 };
 

@@ -20,6 +20,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const dispatches = {initializeApp};
+const dispatchProps = {initializeApp};
 
-export default connect(mapStateToProps, dispatches)(AppContainer);
+export default connect(mapStateToProps, dispatchProps)(AppContainer);

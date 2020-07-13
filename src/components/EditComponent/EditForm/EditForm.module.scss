@@ -8,6 +8,7 @@
   border: 2px solid #b7b7b7;
   padding: 10px;
 }
+
 .title{
   height: 40px;
   font-size: 20px;
@@ -37,6 +38,7 @@
   transition: 0.1s;
   outline: none;
   cursor: pointer;
+
   &:hover{
     background-color: white;
     color: #aec8ff;
@@ -46,3 +48,4 @@
 .submitBtn{
   margin-left: 10px;
 }
+

@@ -4,10 +4,10 @@ import {ReactComponent as Star} from "../../../assets/icons/star.svg";
 
 const StarCheckbox = ({checked, onChange}) => {
     return (
-            <label className={c.check}>
-                <input type="checkbox" checked={checked} onChange={onChange}/>
-                <Star className={c.star}/>
-            </label>
+        <label className={c.check}>
+            <input type="checkbox" checked={checked} onChange={onChange}/>
+            <Star className={c.star}/>
+        </label>
     );
 };
 

@@ -6,7 +6,7 @@ import {CSSTransitionGroup} from "react-transition-group"
 
 const TasksList = ({tasks, toggleCompleted, toggleImportant, removeTask, openEditWindow}) => {
     return (
-        <div className={c.container}>
+        <div>
             <CSSTransitionGroup transitionName={fadeTransition} transitionEnterTimeout={200} transitionLeaveTimeout={200}>
             {tasks.map(t => <div className={c.taskContainer}><Task key={t.id}
                                   id={t.id}
