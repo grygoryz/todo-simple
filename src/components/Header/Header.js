@@ -1,12 +1,19 @@
 import React from "react";
 import c from "./Header.module.scss"
 import {ReactComponent as PlusIcon} from "../../assets/icons/plus.svg";
+import {useSpring, animated, config} from "react-spring";
 
 const Header = ({openEditWindow}) => {
+    const slideDown = useSpring({
+        from: {transform: "translateY(-100%) rotate(-3deg)"},
+        transform: "translateY(0) rotate(0)",
+        config: config.wobbly
+    });
+
   return (
-      <div className={c.container}>
+      <animated.div style={slideDown} className={c.container}>
           <div><PlusIcon onClick={openEditWindow} className={c.btn}/></div>
-      </div>
+      </animated.div>
   )
 };
 

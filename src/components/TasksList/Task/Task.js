@@ -8,6 +8,7 @@ import StarCheckbox from "../../common/Star/StarCheckbox";
 import Button from "../../common/Button/Button";
 
 const Task = ({onCompletedChange, onImportantChange, removeTask, openEditWindow, ...task}) => {
+
     return (
         <div  className={cn(c.container, {[c.container_grayscaled]: task.completed})}>
             <div className={c.star}><StarCheckbox checked={task.important} onChange={onImportantChange}/></div>
