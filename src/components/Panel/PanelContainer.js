@@ -9,6 +9,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const dispatches = {setVisibilityFilter, setSortingMethod};
+const dispatchProps = {setVisibilityFilter, setSortingMethod};
 
-export default connect(mapStateToProps, dispatches)(Panel);
+export default connect(mapStateToProps, dispatchProps)(Panel);

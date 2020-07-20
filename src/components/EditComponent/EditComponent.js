@@ -2,15 +2,7 @@ import React from "react";
 import c from "./EditComponent.module.scss"
 import EditForm from "./EditForm/EditForm";
 
-const EditComponent = ({createTask, applyEdits, closeWindow, editingTask}) => {
-
-    const onSubmit = (formData) => {
-        if (!editingTask){
-            createTask(formData)
-        } else {
-            applyEdits(editingTask.id, formData)
-        }
-    };
+const EditComponent = ({onSubmit, closeWindow, editingTask}) => {
 
     const onClick = (e) => {
         if (e.target.className === c.container) closeWindow();

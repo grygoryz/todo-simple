@@ -5,11 +5,15 @@ import React from "react";
 
 const EditComponentContainer = ({createTask, editingTask, applyEdits, closeEditWindow}) => {
 
+    const onSubmit = (formData) => {
+        if (!editingTask){
+            createTask(formData)
+        } else {
+            applyEdits(editingTask.id, formData)
+        }
+    };
 
-    return <EditComponent createTask={createTask}
-                          closeWindow={closeEditWindow}
-                          editingTask={editingTask}
-                          applyEdits={applyEdits}/>
+    return <EditComponent closeWindow={closeEditWindow} editingTask={editingTask} onSubmit={onSubmit}/>
 };
 
 const mapStateToProps = (state) => {

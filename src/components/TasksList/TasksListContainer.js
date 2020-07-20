@@ -11,6 +11,7 @@ import React from "react";
 import {getSuitableTasks} from "../../selectors/tasksSelectors";
 
 const TasksListContainer = ({tasks, toggleCompleted, toggleImportant, removeTask, openEditWindow}) => {
+
     return (
         <TasksList tasks={tasks}
                    toggleCompleted={toggleCompleted}
