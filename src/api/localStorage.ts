@@ -1,3 +1,4 @@
+// todo: type
 export const localStorageAPI = {
     loadState() {
         try{
@@ -9,7 +10,7 @@ export const localStorageAPI = {
         }
     },
 
-    saveState(state) {
+    saveState(state: any) {
         try {
             localStorage.setItem('state', JSON.stringify(state));
         } catch {

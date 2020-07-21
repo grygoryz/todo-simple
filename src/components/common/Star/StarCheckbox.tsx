@@ -2,7 +2,11 @@ import React from "react";
 import c from "./StarCheckbox.module.scss";
 import {ReactComponent as Star} from "../../../assets/icons/star.svg";
 
-const StarCheckbox = ({checked, onChange}) => {
+type Props = {
+    checked: boolean
+    onChange: (...args: any[]) => void
+}
+const StarCheckbox: React.FC<Props> = ({checked, onChange}) => {
     return (
         <label className={c.check}>
             <input type="checkbox" checked={checked} onChange={onChange}/>

@@ -1,4 +1,5 @@
-import {LOAD_PERSISTED_STATE} from "./common-actions";
+import {CommonActions, LOAD_PERSISTED_STATE} from "./common-actions";
+import {InferredActionTypes} from "./redux-store";
 
 const SET_VISIBILITY_FILTER = "showing-reducer/SET_VISIBILITY_FILTER";
 const SET_SORTING_METHOD = "showing-reducer/SET_SORTING_METHOD";
@@ -20,7 +21,7 @@ const initialState = {
     sortingMethod: SortingMethods.NEWEST_FIRST
 };
 
-const showingReducer = (state = initialState, action) => {
+const showingReducer = (state = initialState, action: ActionsType): State => {
     switch(action.type) {
         case SET_VISIBILITY_FILTER: {
             return {...state, visibilityFilter: action.filter};
@@ -36,7 +37,13 @@ const showingReducer = (state = initialState, action) => {
     }
 };
 
-export const setVisibilityFilter = (filter) => ({type: SET_VISIBILITY_FILTER, filter});
-export const setSortingMethod = (method) => ({type: SET_SORTING_METHOD, method});
+export const ShowingActions = {
+    setVisibilityFilter: (filter: keyof typeof VisibilityFilters) => ({type: SET_VISIBILITY_FILTER, filter} as const),
+    setSortingMethod: (method: keyof typeof SortingMethods) => ({type: SET_SORTING_METHOD, method} as const)
+};
 
 export default showingReducer;
+
+type State = typeof initialState;
+
+type ActionsType = InferredActionTypes<typeof ShowingActions & typeof CommonActions>
