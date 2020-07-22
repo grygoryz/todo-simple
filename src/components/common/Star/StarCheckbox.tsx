@@ -6,6 +6,7 @@ type Props = {
     checked: boolean
     onChange: (...args: any[]) => void
 }
+
 const StarCheckbox: React.FC<Props> = ({checked, onChange}) => {
     return (
         <label className={c.check}>

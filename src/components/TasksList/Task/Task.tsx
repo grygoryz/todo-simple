@@ -7,7 +7,19 @@ import {ReactComponent as EditBtnIcon} from "../../../assets/icons/edit.svg"
 import StarCheckbox from "../../common/Star/StarCheckbox";
 import Button from "../../common/Button/Button";
 
-const Task = ({onCompletedChange, onImportantChange, removeTask, openEditWindow, ...task}) => {
+type Props = {
+    onCompletedChange: () => void
+    onImportantChange: () => void
+    removeTask: () => void
+    openEditWindow: () => void
+    completed: boolean
+    important: boolean
+    title: string
+    date: string
+    description: string
+}
+
+const Task: React.FC<Props> = ({onCompletedChange, onImportantChange, removeTask, openEditWindow, ...task}) => {
 
     return (
         <div  className={cn(c.container, {[c.container_grayscaled]: task.completed})}>

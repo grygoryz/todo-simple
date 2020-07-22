@@ -3,7 +3,11 @@ import c from "./Header.module.scss"
 import {ReactComponent as PlusIcon} from "../../assets/icons/plus.svg";
 import {useSpring, animated, config} from "react-spring";
 
-const Header = ({openEditWindow}) => {
+type Props = {
+    openEditWindow: () => void
+}
+
+const Header: React.FC<Props> = ({openEditWindow}) => {
     const slideDown = useSpring({
         from: {transform: "translateY(-100%) rotate(-3deg)"},
         transform: "translateY(0) rotate(0)",

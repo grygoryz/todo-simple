@@ -1,17 +1,17 @@
-const throttle = (f, ms) => {
+const throttle = (f: (...args: any) => any, ms: number) => {
     let isThrottled = false,
-        savedArgs,
-        savedThis;
+        savedArgs: any,
+        savedThis: any;
 
-    function wrapper() {
+    function wrapper(this: any) {
 
         if (isThrottled) {
             savedArgs = arguments;
-            savedThis = this;
+            savedThis = this as any;
             return;
         }
 
-        f.apply(this, arguments);
+        f.apply(this, arguments as any);
 
         isThrottled = true;
 

@@ -1,11 +1,19 @@
 import React from "react";
 import c from "./EditComponent.module.scss"
-import EditForm from "./EditForm/EditForm";
+import EditForm, {EditFormValues} from "./EditForm/EditForm";
 import {animated, useSpring, config} from "react-spring"
+import {TaskType} from "../../types/types";
 
-const EditComponent = ({onSubmit, closeWindow, editingTask}) => {
-    const onClick = (e) => {
-        if (e.target.className === c.container) closeWindow();
+type Props = {
+    onSubmit: (formData: EditFormValues) => void
+    closeWindow: () => void
+    editingTask: TaskType | null
+}
+
+const EditComponent: React.FC<Props> = ({onSubmit, closeWindow, editingTask}) => {
+    const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        const target = e.target as HTMLDivElement;
+        if (target.className === c.container) closeWindow();
     };
 
     const fadeIn = useSpring({

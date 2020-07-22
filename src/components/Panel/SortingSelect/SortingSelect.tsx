@@ -1,9 +1,14 @@
 import React from "react";
 import c from "../Select.module.scss"
-import {SortingMethods} from "../../../redux/showing-reducer";
+import {SortingMethodsType, SortingMethods} from "../../../redux/showing-reducer";
 import Select from "../../common/Select/Select";
 
-const SortingSelect = ({value, onChange}) => {
+type Props = {
+    value: SortingMethodsType
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+}
+
+const SortingSelect: React.FC<Props> = ({value, onChange}) => {
     return (
         <div className={c.container}>
            <div className={c.title}>Sorting:</div>

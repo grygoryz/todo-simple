@@ -19,12 +19,6 @@ const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(thunkMiddleware)
 ));
 
-export type AppState = ReturnType<typeof rootReducer>;
-
-export type InferredActionTypes<T> = T extends {[key: string]: (...args: any[]) => infer U} ? U : never
-
-export type BaseThunkType<A extends Action, R = void> = ThunkAction<R, AppState, unknown, A>
-
 store.subscribe(throttle(() => {
     localStorageAPI.saveState({
         tasksList: store.getState().tasks.tasksList,
@@ -33,3 +27,9 @@ store.subscribe(throttle(() => {
 }, 1000));
 
 export default store;
+
+export type AppState = ReturnType<typeof rootReducer>;
+
+export type InferredActionTypes<T> = T extends {[key: string]: (...args: any[]) => infer U} ? U : never
+
+export type BaseThunkType<A extends Action, R = void> = ThunkAction<R, AppState, unknown, A>

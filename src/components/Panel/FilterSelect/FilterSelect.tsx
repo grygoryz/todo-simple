@@ -1,9 +1,14 @@
 import React from "react";
 import c from "../Select.module.scss"
-import {VisibilityFilters} from "../../../redux/showing-reducer";
+import {VisibilityFiltersType, VisibilityFilters} from "../../../redux/showing-reducer";
 import Select from "../../common/Select/Select";
 
-const FilterSelect = ({value, onChange}) => {
+type Props = {
+    value: VisibilityFiltersType
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+}
+
+const FilterSelect: React.FC<Props> = ({value, onChange}) => {
     return (
         <div className={c.container}>
             <div className={c.title}>Show: </div>

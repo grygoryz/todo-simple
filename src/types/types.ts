@@ -1,4 +1,4 @@
-export type Task = {
+export type TaskType = {
     id: number
     date: string
     title: string
@@ -8,4 +8,4 @@ export type Task = {
     timestamp: number
 }
 
-export type TasksList = Array<Task>
+export type TasksListType = Array<TaskType>

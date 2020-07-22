@@ -3,7 +3,7 @@ import c from "./Button.module.scss";
 
 type Props = {
     onClick: (...args: any[]) => void
-    className: string
+    className?: string
 }
 
 const Button: React.FC<Props> = ({onClick, children, className}) => {

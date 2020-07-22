@@ -17,8 +17,8 @@ export const SortingMethods = {
 };
 
 const initialState = {
-    visibilityFilter: VisibilityFilters.SHOW_ALL,
-    sortingMethod: SortingMethods.NEWEST_FIRST
+    visibilityFilter: VisibilityFilters.SHOW_ALL as VisibilityFiltersType,
+    sortingMethod: SortingMethods.NEWEST_FIRST as SortingMethodsType
 };
 
 const showingReducer = (state = initialState, action: ActionsType): State => {
@@ -38,12 +38,15 @@ const showingReducer = (state = initialState, action: ActionsType): State => {
 };
 
 export const ShowingActions = {
-    setVisibilityFilter: (filter: keyof typeof VisibilityFilters) => ({type: SET_VISIBILITY_FILTER, filter} as const),
-    setSortingMethod: (method: keyof typeof SortingMethods) => ({type: SET_SORTING_METHOD, method} as const)
+    setVisibilityFilter: (filter: VisibilityFiltersType) => ({type: SET_VISIBILITY_FILTER, filter} as const),
+    setSortingMethod: (method: SortingMethodsType) => ({type: SET_SORTING_METHOD, method} as const)
 };
 
 export default showingReducer;
 
-type State = typeof initialState;
+export type State = typeof initialState;
 
 type ActionsType = InferredActionTypes<typeof ShowingActions & typeof CommonActions>
+
+export type VisibilityFiltersType = keyof typeof VisibilityFilters;
+export type SortingMethodsType = keyof typeof SortingMethods

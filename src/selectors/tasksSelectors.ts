@@ -1,22 +1,25 @@
-import {SortingMethods, VisibilityFilters} from "../redux/showing-reducer";
+import {SortingMethods, SortingMethodsType, VisibilityFilters, VisibilityFiltersType} from "../redux/showing-reducer";
 import {createSelector} from "reselect"
 import {compose} from "redux";
+import {AppState} from "../redux/redux-store";
+import {TasksListType} from "../types/types";
 
-export const getTasks = (state) => state.tasks.tasksList;
-export const getVisibilityFilter = (state) => state.showing.visibilityFilter;
-export const getSortingMethod = (state) => state.showing.sortingMethod;
+export const getTasks = (state: AppState) => state.tasks.tasksList;
+export const getVisibilityFilter = (state: AppState) => state.showing.visibilityFilter;
+export const getSortingMethod = (state: AppState) => state.showing.sortingMethod;
 
 export const getSuitableTasks = createSelector(
     getTasks, getVisibilityFilter, getSortingMethod,
     (tasks, filter, method) => {
         const options = {tasks, filter, method};
+        type Options = typeof options
 
-        const {tasks: newTasks} = compose(getSortedTasks, getFilteredTasks)(options);
+        const {tasks: newTasks} = compose<Options>(getSortedTasks, getFilteredTasks)(options);
         return newTasks;
     }
 );
 
-const getFilteredTasks = ({tasks, filter, ...rest}) => {
+const getFilteredTasks = ({tasks, filter, ...rest}: {tasks: TasksListType, filter: VisibilityFiltersType}) => {
     switch (filter) {
         case VisibilityFilters.SHOW_ALL: {
             return {tasks, ...rest}
@@ -36,7 +39,7 @@ const getFilteredTasks = ({tasks, filter, ...rest}) => {
     }
 };
 
-const getSortedTasks = ({tasks, method, ...rest}) => {
+const getSortedTasks = ({tasks, method, ...rest}: {tasks: TasksListType, method: SortingMethodsType}) => {
     switch (method) {
         case SortingMethods.OLDEST_FIRST: {
             return {tasks: [...tasks].sort((a, b) => a.timestamp - b.timestamp), ...rest}

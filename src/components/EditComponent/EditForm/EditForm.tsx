@@ -1,12 +1,22 @@
 import React from "react";
 import c from "./EditForm.module.scss"
 import cn from "classnames"
-import {Field, reduxForm} from "redux-form";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 
-const EditForm = ({handleSubmit, onCancel}) => {
+type OwnProps = {
+    onCancel: () => void
+}
+
+export type EditFormValues = {
+    title: string
+    description: string
+    important: boolean
+} | null
+
+const EditForm: React.FC<InjectedFormProps<EditFormValues, OwnProps> & OwnProps> = ({handleSubmit, onCancel}) => {
     return (
         <form onSubmit={handleSubmit}>
-            <Field autoFocus="true" component="input" name="title" placeholder="Title" className={cn(c.field, c.title)}/>
+            <Field autoFocus={true} component="input" name="title" placeholder="Title" className={cn(c.field, c.title)}/>
             <Field component="textarea" name="description" placeholder="Description" className={cn(c.field, c.description)}/>
             <label>
                 Check as important:
@@ -20,4 +30,5 @@ const EditForm = ({handleSubmit, onCancel}) => {
     )
 };
 
-export default reduxForm({form: "edit-form"})(EditForm)
+
+export default reduxForm<EditFormValues | null, OwnProps >({form: "edit-form"})(EditForm)

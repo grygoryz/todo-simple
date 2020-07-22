@@ -2,7 +2,8 @@ import formatDate from "../utils/formatDate";
 import {AppActions, ActionsType as AppActionsType} from "./app-reducer";
 import {CommonActions, LOAD_PERSISTED_STATE} from "./common-actions";
 import {BaseThunkType, InferredActionTypes} from "./redux-store";
-import {Task, TasksList} from "../types/types";
+import {TaskType, TasksListType} from "../types/types";
+import {EditFormValues} from "../components/EditComponent/EditForm/EditForm";
 
 const ADD_TASK = "tasks-reducer/ADD_TASK";
 const REMOVE_TASK = "task-reducer/REMOVE_TASK";
@@ -22,8 +23,8 @@ const initialState = {
             important: false,
             timestamp: 99999999999
         },
-    ] as TasksList,
-    editingTask: null as Task | null
+    ] as TasksListType,
+    editingTask: null as TaskType | null
 };
 
 const tasksReducer = (state = initialState, action: ActionsType): State => {
@@ -55,17 +56,17 @@ const tasksReducer = (state = initialState, action: ActionsType): State => {
 };
 
 export const TasksActions = {
-    addTask: (task: Task) => ({type: ADD_TASK, task} as const),
+    addTask: (task: TaskType) => ({type: ADD_TASK, task} as const),
     removeTask: (id: number) => ({type: REMOVE_TASK, id} as const),
-    editTask: (id: number, payload: Partial<Task>) => ({type: EDIT_TASK, id, payload} as const),
+    editTask: (id: number, payload: EditFormValues) => ({type: EDIT_TASK, id, payload} as const),
     toggleCompleted: (id: number) => ({type: TOGGLE_COMPLETED, id} as const),
     toggleImportant: (id: number) => ({type: TOGGLE_IMPORTANT, id} as const),
-    setEditingTask: (payload: Task | null) => ({type: SET_EDITING_TASK, payload} as const)
+    setEditingTask: (payload: TaskType | null) => ({type: SET_EDITING_TASK, payload} as const)
 };
 
-const getNextId = (tasksList: TasksList) =>  tasksList.length ? tasksList[tasksList.length - 1].id + 1 : 1;
-// todo: настроить тип EditFormValues
-export const createTask = (formData: any): Thunk => (dispatch, getState) => {
+const getNextId = (tasksList: TasksListType) =>  tasksList.length ? tasksList[tasksList.length - 1].id + 1 : 1;
+
+export const createTask = (formData: EditFormValues): Thunk => (dispatch, getState) => {
     const date = new Date();
 
     const newTask = {
@@ -77,10 +78,10 @@ export const createTask = (formData: any): Thunk => (dispatch, getState) => {
     };
 
     dispatch(AppActions.setEditMode(false));
-    dispatch(TasksActions.addTask(newTask))
+    dispatch(TasksActions.addTask(newTask as TaskType))
 };
 
-export const openEditWindow = (task: Task): Thunk => (dispatch) => {
+export const openEditWindow = (task: TaskType): Thunk => (dispatch) => {
     dispatch(TasksActions.setEditingTask(task));
     dispatch(AppActions.setEditMode(true));
 };
@@ -90,7 +91,7 @@ export const closeEditWindow = (): Thunk => (dispatch) => {
     dispatch(TasksActions.setEditingTask(null));
 };
 
-export const applyEdits = (id: number, payload: Partial<Task>): Thunk => (dispatch) => {
+export const applyEdits = (id: number, payload: EditFormValues): Thunk => (dispatch) => {
     dispatch(closeEditWindow());
     dispatch(TasksActions.editTask(id, payload));
 };

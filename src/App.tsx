@@ -4,8 +4,12 @@ import TasksListContainer from "./components/TasksList/TasksListContainer";
 import EditComponentContainer from "./components/EditComponent/EditComponentContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import PanelContainer from "./components/Panel/PanelContainer";
-function App({editMode}) {
 
+type Props = {
+    editMode: boolean
+}
+
+const App: React.FC<Props> = ({editMode}) => {
   return (
     <div>
         {editMode && <EditComponentContainer/>}
@@ -19,7 +23,7 @@ function App({editMode}) {
 
     </div>
   );
-}
+};
 
 export default App
 
