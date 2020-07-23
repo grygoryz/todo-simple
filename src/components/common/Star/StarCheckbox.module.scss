@@ -1,26 +1,26 @@
-.check{
+.check {
 
-  & input{
+  & input {
     display: none;
 
-    &:hover + .star{
-      & path{
+    &:hover + .star {
+      & path {
         fill: #9e9e9e;
       }
     }
 
-    &:checked + .star{
-      & path{
+    &:checked + .star {
+      & path {
         fill: #f5db0b;
       }
     }
   }
 }
 
-.star{
+.star {
   cursor: pointer;
 
-  & path{
+  & path {
     transition: fill 0.1s;
   }
 }

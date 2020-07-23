@@ -15,7 +15,7 @@ const throttle = (f: (...args: any) => any, ms: number) => {
 
         isThrottled = true;
 
-        setTimeout(() =>  {
+        setTimeout(() => {
             isThrottled = false;
             if (savedArgs) {
                 wrapper.apply(savedThis, savedArgs);

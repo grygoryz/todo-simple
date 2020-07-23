@@ -19,7 +19,7 @@ export const getSuitableTasks = createSelector(
     }
 );
 
-const getFilteredTasks = ({tasks, filter, ...rest}: {tasks: TasksListType, filter: VisibilityFiltersType}) => {
+const getFilteredTasks = ({tasks, filter, ...rest}: { tasks: TasksListType, filter: VisibilityFiltersType }) => {
     switch (filter) {
         case VisibilityFilters.SHOW_ALL: {
             return {tasks, ...rest}
@@ -39,7 +39,7 @@ const getFilteredTasks = ({tasks, filter, ...rest}: {tasks: TasksListType, filte
     }
 };
 
-const getSortedTasks = ({tasks, method, ...rest}: {tasks: TasksListType, method: SortingMethodsType}) => {
+const getSortedTasks = ({tasks, method, ...rest}: { tasks: TasksListType, method: SortingMethodsType }) => {
     switch (method) {
         case SortingMethods.OLDEST_FIRST: {
             return {tasks: [...tasks].sort((a, b) => a.timestamp - b.timestamp), ...rest}

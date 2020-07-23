@@ -1,4 +1,4 @@
-.field{
+.field {
   font-family: inherit;
   width: 100%;
   display: block;
@@ -9,24 +9,25 @@
   padding: 10px;
 }
 
-.title{
+.title {
   height: 40px;
   font-size: 20px;
   font-weight: bold;
 }
-.description{
+
+.description {
   font-size: 18px;
   resize: none;
   height: 150px;
 }
 
-.controls{
+.controls {
   display: flex;
   justify-content: flex-end;
   margin-top: 15px;
 }
 
-.btn{
+.btn {
   font-family: inherit;
   font-size: 18px;
   font-weight: bold;
@@ -39,13 +40,13 @@
   outline: none;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: white;
     color: #aec8ff;
   }
 }
 
-.submitBtn{
+.submitBtn {
   margin-left: 10px;
 }
 

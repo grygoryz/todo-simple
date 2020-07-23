@@ -1,4 +1,4 @@
-.container{
+.container {
   width: 100%;
   position: relative;
   border: 3px solid #dadada;
@@ -6,41 +6,42 @@
   display: flex;
   transition: background-color, color .2s;
 
-  &_grayscaled{
+  &_grayscaled {
     background-color: #ededed;
     color: gray;
   }
 }
 
-.options{
+.options {
   flex: 0 0 6%;
   width: 100%;
-  border-left:  3px solid #dadada;
+  border-left: 3px solid #dadada;
 }
 
-.star{
+.star {
   position: absolute;
-  top: 0; right: -45px;
+  top: 0;
+  right: -45px;
   width: 33px;
   height: 33px;
   cursor: pointer;
-  & path{
+
+  & path {
     fill: #cacaca;
   }
 }
 
-.starChecked{
-  & path{
+.starChecked {
+  & path {
     fill: #ffc107;
   }
 }
 
-.content{
+.content {
   flex: 1 1 auto;
-
 }
 
-.header{
+.header {
   border-bottom: 3px solid #dadada;
   display: flex;
   justify-content: space-between;
@@ -50,7 +51,7 @@
   }
 }
 
-.header, .description{
+.header, .description {
   padding: 5px 20px;
 
   @media (max-width: 450px) {
@@ -58,11 +59,11 @@
   }
 }
 
-.title, .description{
+.title, .description {
   word-break: break-word;
 }
 
-.title{
+.title {
   font-size: 25px;
   font-weight: bold;
   margin-right: 10px;
@@ -77,26 +78,26 @@
   }
 }
 
-.date{
+.date {
   @media (max-width: 450px) {
     font-size: 14px;
   }
 }
 
-.description{
+.description {
   max-width: 100%;
   font-size: 18px;
   line-height: 1.5;
 }
 
-.options{
+.options {
   padding: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.editBtn{
+.editBtn {
   flex: 1 1 auto;
   margin-top: 5px;
 }

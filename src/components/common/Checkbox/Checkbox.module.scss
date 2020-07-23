@@ -5,27 +5,30 @@
 
   input {
     display: none;
+
     &:hover + .box {
       background-color: rgba(174, 200, 255, 0.37);
+
       &:after {
         top: 0;
       }
     }
+
     &:checked + .box {
       background-color: #cbccc3;
       border-color: gray;
+
       &:after {
         top: 0;
         border-color: gray;
       }
     }
-
   }
 
   & .box {
     width: 100%;
     height: 100%;
-    transition: all 0.3s cubic-bezier(.19,1,.22,1);
+    transition: all 0.3s cubic-bezier(.19, 1, .22, 1);
     border: 2px solid #859aff;
     background-color: white;
     position: relative;
@@ -40,9 +43,9 @@
       border-left: 7.5px solid;
       border-bottom: 7.5px solid;
       border-color: #859aff;
-      transform: rotate(-45deg) translate3d(0,0,0);
+      transform: rotate(-45deg) translate3d(0, 0, 0);
       transform-origin: center center;
-      transition: all 1.1s cubic-bezier(.19,1,.22,1);
+      transition: all 1.1s cubic-bezier(.19, 1, .22, 1);
       left: 0;
       right: 0;
       top: 200%;
