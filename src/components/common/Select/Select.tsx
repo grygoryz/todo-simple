@@ -7,11 +7,9 @@ type Props = {
 }
 
 const Select: React.FC<Props> = ({value, onChange, children}) => {
-    return (
-            <select value={value} onChange={onChange} className={c.select}>
-                {children}
-            </select>
-    )
+    return <select value={value} onChange={onChange} className={c.select}>
+        {children}
+    </select>
 };
 
 export default Select

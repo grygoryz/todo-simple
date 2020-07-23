@@ -30,5 +30,4 @@ const EditForm: React.FC<InjectedFormProps<EditFormValues, OwnProps> & OwnProps>
     )
 };
 
-
 export default reduxForm<EditFormValues | null, OwnProps >({form: "edit-form"})(EditForm)
