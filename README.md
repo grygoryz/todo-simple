@@ -1,3 +1,12 @@
+# todo-simple
+
+This is a simple task manager created using React JS, Typescript, Redux. This app implements such things as creating, editing, deleting tasks, marking them as completed and important, filtering and sorting them. Also it using Local Storage.
+
+Link to deployed app: https://todo-simple-a615b.web.app/
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
